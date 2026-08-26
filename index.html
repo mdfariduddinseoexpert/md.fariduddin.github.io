@@ -673,7 +673,7 @@
     }
 
     /* Replace the placeholder above with your actual image:
-       <img src="assets/farid.jpg" alt="Md. Farid Uddin"> */
+       <img src="assets/farid-profile.png" alt="Md. Farid Uddin"> */
 
     .about-copy h2 {
       font-size: clamp(40px, 5vw, 66px);
@@ -753,14 +753,29 @@
     /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
-      padding: 42px 0 25px;
+      padding: 0 0 25px;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(255,90,31,.07), transparent 30%),
+        #09090a;
+    }
+
+    .footer-topline {
+      min-height: 55px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted-2);
+      font: 500 9px "DM Mono", monospace;
+      letter-spacing: .06em;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr .6fr .6fr;
-      gap: 50px;
-      padding-bottom: 45px;
+      grid-template-columns: 1.45fr .55fr .75fr;
+      gap: 55px;
+      padding: 48px 0 45px;
     }
 
     .footer-brand {
@@ -777,6 +792,29 @@
       font-size: 12px;
       line-height: 1.7;
       margin-top: 12px;
+    }
+
+    .footer-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      color: #d5d4d1;
+      font: 500 10px "DM Mono", monospace;
+      border-bottom: 1px solid #3a3a3f;
+      padding-bottom: 7px;
+      transition: .25s var(--ease);
+    }
+
+    .footer-email span {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .footer-email:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(3px);
     }
 
     .footer-title {
@@ -840,6 +878,315 @@
       font: 400 9px "DM Mono", monospace;
     }
 
+
+    /* =========================
+       PREMIUM MICRO-ANIMATIONS
+       ========================= */
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content .availability { animation: heroIn .8s var(--ease) both; }
+    .hero-content h1 { animation: heroIn .9s .08s var(--ease) both; }
+    .hero-copy { animation: heroIn .9s .18s var(--ease) both; }
+    .data-panel { animation: heroIn .9s .25s var(--ease) both; }
+
+    .availability i {
+      animation: pulseDot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: .55; }
+    }
+
+    .data-panel {
+      transition: transform .5s var(--ease), border-color .35s ease, box-shadow .5s var(--ease);
+    }
+
+    .data-panel:hover {
+      transform: translateY(-7px);
+      border-color: #39393f;
+      box-shadow: 0 35px 90px rgba(0,0,0,.48);
+    }
+
+    .rank-row {
+      transition: background .3s ease, padding-left .3s var(--ease), padding-right .3s var(--ease);
+    }
+
+    .rank-row:hover {
+      background: rgba(255,255,255,.018);
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+
+    .rank-growth {
+      transition: transform .3s var(--ease);
+    }
+
+    .rank-row:hover .rank-growth {
+      transform: translateX(4px);
+    }
+
+    .ticker-item b {
+      animation: numberGlow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes numberGlow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .68; }
+    }
+
+    .section-title,
+    .cta h2,
+    .about-copy h2 {
+      transition: letter-spacing .5s var(--ease);
+    }
+
+    .section-title:hover,
+    .cta h2:hover,
+    .about-copy h2:hover {
+      letter-spacing: -.072em;
+    }
+
+    .project {
+      will-change: padding;
+    }
+
+    .project-visual {
+      transition: transform .55s var(--ease), border-color .35s ease, background-position .8s ease;
+      background-position: 0 0, 0 0;
+    }
+
+    .project:hover .project-visual {
+      transform: translateY(-5px);
+      border-color: #3a3a40;
+      background-position: 18px 18px, 18px 18px;
+    }
+
+    .visual-ui {
+      transition: transform .55s var(--ease), box-shadow .55s var(--ease);
+    }
+
+    .project:hover .visual-ui {
+      transform: rotate(0deg) translateY(-3px) scale(1.015);
+      box-shadow: 0 30px 60px rgba(0,0,0,.52);
+    }
+
+    .visual-chart polyline {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: drawChart 2.2s 1s var(--ease) forwards;
+    }
+
+    @keyframes drawChart {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .metric {
+      transition: transform .3s var(--ease), border-color .3s ease, background .3s ease;
+    }
+
+    .metric:hover {
+      transform: translateY(-3px);
+      border-color: #3d3d43;
+      background: #121216;
+    }
+
+    .service {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: -45px;
+      bottom: -45px;
+      border-radius: 50%;
+      background: rgba(255,90,31,.07);
+      transform: scale(0);
+      transition: transform .5s var(--ease);
+    }
+
+    .service:hover::after {
+      transform: scale(1);
+    }
+
+    .service-code {
+      transition: transform .35s var(--ease), color .25s ease;
+    }
+
+    .service:hover .service-code {
+      transform: translateX(5px);
+      color: #ff7747;
+    }
+
+    .process-item {
+      transition: padding-left .35s var(--ease), background .35s ease;
+    }
+
+    .process-item:hover {
+      padding-left: 10px;
+      background: rgba(255,255,255,.012);
+    }
+
+    .process-item .num {
+      transition: transform .35s var(--ease);
+    }
+
+    .process-item:hover .num {
+      transform: translateX(4px);
+    }
+
+    .process-statement h3 span {
+      background: linear-gradient(90deg, var(--accent), #ff986f, var(--accent));
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: accentFlow 5s linear infinite;
+    }
+
+    @keyframes accentFlow {
+      to { background-position: 220% center; }
+    }
+
+    .portrait-wrap {
+      position: relative;
+      overflow: hidden;
+      transition: transform .55s var(--ease), border-color .35s ease, box-shadow .55s var(--ease);
+    }
+
+    .about-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: inherit;
+      filter: saturate(.96) contrast(1.02);
+      transition: transform .7s var(--ease), filter .5s ease;
+    }
+
+    .portrait-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,90,31,.08), transparent 45%, rgba(0,0,0,.08));
+      mix-blend-mode: screen;
+    }
+
+    .portrait-wrap:hover {
+      box-shadow: 0 28px 70px rgba(0,0,0,.4);
+    }
+
+    .portrait-wrap:hover .about-photo {
+      transform: scale(1.035);
+      filter: saturate(1) contrast(1.03);
+    }
+
+    .portrait-wrap:hover {
+      transform: translateY(-7px) rotate(-1deg);
+      border-color: #3c3c42;
+    }
+
+    .credential {
+      transition: transform .3s var(--ease), border-color .3s ease, color .3s ease;
+    }
+
+    .credential:hover {
+      transform: translateY(-3px);
+      border-color: #4a4a50;
+      color: var(--text);
+    }
+
+    .cta .primary-btn {
+      animation: ctaFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes ctaFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .footer-topline span:last-child {
+      color: #77777e;
+      transition: color .3s ease;
+    }
+
+    .footer-topline:hover span:last-child {
+      color: var(--accent);
+    }
+
+    .footer-brand {
+      transition: transform .3s var(--ease);
+      transform-origin: left center;
+    }
+
+    .footer-brand:hover {
+      transform: translateX(4px);
+    }
+
+    .social-icon {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icon::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--accent);
+      transform: scale(0);
+      transition: transform .35s var(--ease);
+      z-index: 0;
+    }
+
+    .social-icon svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-icon:hover::before {
+      transform: scale(1);
+    }
+
+    .social-icon:hover {
+      color: #09090a;
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .footer-topline {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+        gap: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-content .availability,
+      .hero-content h1,
+      .hero-copy,
+      .data-panel,
+      .availability i,
+      .ticker-item b,
+      .visual-chart polyline,
+      .process-statement h3 span,
+      .cta .primary-btn {
+        animation: none !important;
+      }
+    }
+
     /* REVEAL */
     .reveal {
       opacity: 0;
@@ -851,6 +1198,18 @@
       opacity: 1;
       transform: none;
     }
+
+    .service-grid .service:nth-child(2) { transition-delay: .04s; }
+    .service-grid .service:nth-child(3) { transition-delay: .08s; }
+    .service-grid .service:nth-child(4) { transition-delay: .12s; }
+    .service-grid .service:nth-child(5) { transition-delay: .16s; }
+    .service-grid .service:nth-child(6) { transition-delay: .20s; }
+    .service-grid .service:nth-child(7) { transition-delay: .24s; }
+    .service-grid .service:nth-child(8) { transition-delay: .28s; }
+    .service-grid .service:nth-child(9) { transition-delay: .32s; }
+    .service-grid .service:nth-child(10) { transition-delay: .36s; }
+    .service-grid .service:nth-child(11) { transition-delay: .40s; }
+    .service-grid .service:nth-child(12) { transition-delay: .44s; }
 
     /* MOBILE */
     @media (max-width: 900px) {
@@ -1424,6 +1783,18 @@
             <p>SEO-friendly content that reads naturally, answers intent, and is structured for search visibility.</p>
           </article>
 
+          <article class="service reveal">
+            <div class="service-code">LNK</div>
+            <h3>Link Building</h3>
+            <p>Relevant, quality-focused link acquisition designed to strengthen authority, rankings, and organic visibility.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-code">ADS</div>
+            <h3>Google Ads</h3>
+            <p>Search campaign setup and optimization focused on high-intent traffic, efficient spend, and measurable leads.</p>
+          </article>
+
         </div>
       </div>
     </section>
@@ -1496,7 +1867,7 @@
 
         <div class="portrait-wrap reveal">
           <!-- Replace this placeholder with:
-          <img src="assets/farid.jpg" alt="Md. Farid Uddin">
+          <img src="assets/farid-profile.png" alt="Md. Farid Uddin">
           -->
           <div class="portrait">
             ADD YOUR PROFESSIONAL PHOTO HERE<br><br>
@@ -1547,7 +1918,7 @@
 
         <div class="actions reveal">
           <!-- Replace these with your real contact links -->
-          <a class="primary-btn" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+          <a class="primary-btn" href="mailto:foriduddin277@gmail.com">Email me ↗</a>
           <a class="outline-btn" href="https://wa.me/8801729274759" target="_blank" rel="noopener">WhatsApp ↗</a>
         </div>
 
@@ -1562,14 +1933,24 @@
   <footer>
     <div class="container">
 
+      <div class="footer-topline">
+        <span>FARID.UDDIN / DIGITAL MARKETING & SEO</span>
+        <span>AVAILABLE FOR SELECT PROJECTS</span>
+      </div>
+
       <div class="footer-grid">
 
         <div>
           <div class="footer-brand">FARID<span>.</span>UDDIN</div>
           <p class="footer-desc">
-            Digital Marketing & SEO Specialist focused on search visibility,
-            content, technical SEO, and sustainable growth.
+            Digital Marketing & SEO Specialist helping businesses improve
+            search visibility, build authority, and turn qualified traffic
+            into measurable growth.
           </p>
+
+          <a class="footer-email" href="mailto:foriduddin277@gmail.com">
+            foriduddin277@gmail.com <span>↗</span>
+          </a>
         </div>
 
         <div>
@@ -1584,7 +1965,7 @@
         </div>
 
         <div>
-          <div class="footer-title">Connect</div>
+          <div class="footer-title">Social profiles</div>
 
           <div class="social-icons" aria-label="Social profiles">
 
@@ -1609,6 +1990,22 @@
                target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.5 0h9A7.5 7.5 0 0 1 24 7.5v9a7.5 7.5 0 0 1-7.5 7.5h-9A7.5 7.5 0 0 1 0 16.5v-9A7.5 7.5 0 0 1 7.5 0Zm-.22 2A5.28 5.28 0 0 0 2 7.28v9.44A5.28 5.28 0 0 0 7.28 22h9.44A5.28 5.28 0 0 0 22 16.72V7.28A5.28 5.28 0 0 0 16.72 2H7.28ZM17.75 4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5ZM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a class="social-icon" href="https://www.facebook.com/fariduddinseo/"
+               target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.2 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.04 1.79-4.72 4.55-4.72 1.32 0 2.7.24 2.7.24v2.99h-1.52c-1.5 0-1.97.94-1.97 1.9v2.25h3.35l-.54 3.49h-2.81V24C19.61 23.2 24 18.1 24 12.07Z"/>
+              </svg>
+            </a>
+
+            <!-- Pinterest -->
+            <a class="social-icon" href="https://www.pinterest.com/fariduddin_seo_specialist/"
+               target="_blank" rel="noopener noreferrer" aria-label="Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.42 7.62 11.18-.11-.95-.2-2.41.04-3.45.22-.94 1.42-6 1.42-6s-.36-.72-.36-1.79c0-1.68.98-2.93 2.2-2.93 1.04 0 1.54.78 1.54 1.72 0 1.05-.67 2.62-1.01 4.08-.29 1.22.61 2.21 1.81 2.21 2.17 0 3.84-2.29 3.84-5.59 0-2.92-2.1-4.97-5.1-4.97-3.48 0-5.52 2.61-5.52 5.31 0 1.05.4 2.18.91 2.79.1.12.11.23.08.35l-.34 1.4c-.05.23-.18.28-.42.17-1.55-.72-2.52-2.98-2.52-4.8 0-3.91 2.84-7.5 8.19-7.5 4.3 0 7.64 3.07 7.64 7.17 0 4.28-2.7 7.72-6.45 7.72-1.26 0-2.45-.65-2.86-1.42l-.78 2.96c-.28 1.08-1.03 2.43-1.54 3.26 1.16.36 2.38.55 3.65.55 6.63 0 12-5.37 12-12S18.63 0 12 0Z"/>
               </svg>
             </a>
 
