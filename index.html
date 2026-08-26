@@ -1405,6 +1405,121 @@
         transition-duration: .01ms !important;
       }
     }
+
+    /* =========================
+       TESTIMONIALS + PRIVACY
+       ========================= */
+    .testimonials {
+      padding: 110px 0;
+      background: #0b0b0c;
+      border-top: 1px solid var(--line);
+    }
+
+    .testimonial-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #111113;
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(0,0,0,.34);
+      border-color: #3d3d43;
+    }
+
+    .testimonial-stars {
+      color: var(--accent);
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-quote {
+      color: #deddd9;
+      font-size: 16px;
+      line-height: 1.75;
+      margin: 0 0 26px;
+    }
+
+    .testimonial-person {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .testimonial-person strong {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .testimonial-person span {
+      color: var(--muted);
+    }
+
+    .testimonial-note {
+      margin-top: 28px;
+      font-size: 12px;
+      line-height: 1.6;
+      opacity: .65;
+    }
+
+    .privacy {
+      padding: 90px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+
+    .privacy-wrap {
+      max-width: 900px;
+    }
+
+    .privacy h2 {
+      margin: 0 0 20px;
+    }
+
+    .privacy h3 {
+      margin: 32px 0 10px;
+      font-size: 18px;
+    }
+
+    .privacy p, .privacy li {
+      line-height: 1.8;
+      opacity: .82;
+    }
+
+    .privacy ul {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-head {
+        display: block;
+      }
+    }
+
   </style>
 </head>
 
@@ -1422,6 +1537,7 @@
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1884,6 +2000,66 @@
     </section>
 
     <!-- =========================
+         TESTIMONIALS
+         ========================= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="testimonial-head reveal">
+          <div>
+            <div class="section-label">// client feedback</div>
+            <h2 class="section-title">What clients<br>say about working with me.</h2>
+          </div>
+          <p class="section-intro">
+            A few words from clients about communication, strategy, and the
+            practical value of working together.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Farid made SEO much easier to understand and gave my plumbing
+              business a clear, practical direction. His communication was
+              consistent, and I always knew what was being worked on.”
+            </p>
+            <div class="testimonial-person">
+              <strong>Ayesha</strong>
+              <span>Plumbing Business · Bangladesh</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Working with Farid was straightforward and professional. He
+              understood the needs of my pet business, explained the SEO work
+              clearly, and focused on practical improvements rather than
+              unnecessary complexity.”
+            </p>
+            <div class="testimonial-person">
+              <strong>Ferran</strong>
+              <span>Pet Business · USA</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Farid was thoughtful, responsive, and easy to work with. His
+              approach to SEO was organized and focused on finding useful
+              opportunities for the business instead of chasing vanity metrics.”
+            </p>
+            <div class="testimonial-person">
+              <strong>Ravi</strong>
+              <span>Business Client · USA</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
          CTA
          ========================= -->
     <section id="contact" class="cta">
@@ -1945,7 +2121,9 @@
             <a href="#services">Services</a>
             <a href="#process">Process</a>
             <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
           </div>
         </div>
 
