@@ -647,33 +647,41 @@
     }
 
     .portrait-wrap {
-      aspect-ratio: 1 / 1;
+      position: relative;
+      width: 100%;
+      max-width: 320px;
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 9px;
       background: #111113;
+      overflow: visible;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     .portrait {
       width: 100%;
-      height: 100%;
+      height: auto;
       border-radius: 11px;
       border: 1px solid #333338;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 38%, rgba(255,90,31,.12), transparent 28%),
-        #17171a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #55555c;
-      font: 10px "DM Mono", monospace;
-      text-align: center;
-      padding: 30px;
+      overflow: visible;
+      background: #17171a;
+      display: block;
+      padding: 0;
     }
 
-    /* Replace the placeholder above with your actual image:
-       <img src="assets/farid-profile.png" alt="Md. Farid Uddin"> */
+    .about-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 11px;
+      filter: saturate(.96) contrast(1.02);
+      transition: transform .7s var(--ease), filter .5s ease;
+    }
 
     .about-copy h2 {
       font-size: clamp(40px, 5vw, 66px);
@@ -1057,36 +1065,7 @@
     }
 
     .portrait-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .55s var(--ease), border-color .35s ease, box-shadow .55s var(--ease);
-}
-
-.about-photo {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 18px;
-  filter: saturate(.96) contrast(1.02);
-  transition: transform .7s var(--ease), filter .5s ease;
-}
-
-    .portrait-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(135deg, rgba(255,90,31,.08), transparent 45%, rgba(0,0,0,.08));
-      mix-blend-mode: screen;
+      transition: transform .55s var(--ease), border-color .35s ease, box-shadow .55s ease;
     }
 
     .portrait-wrap:hover {
@@ -1094,7 +1073,7 @@
     }
 
     .portrait-wrap:hover .about-photo {
-      transform: scale(1.035);
+      transform: scale(1.012);
       filter: saturate(1) contrast(1.03);
     }
 
@@ -1873,13 +1852,13 @@
       <div class="container about-grid">
 
         <div class="portrait-wrap reveal">
-    <div class="portrait">
-        <img
+          <img
+            class="about-photo"
             src="assets/farid-profile.png"
             alt="Md. Farid Uddin — Digital Marketing & SEO Specialist"
-        >
-    </div>
-</div>
+            loading="lazy"
+          />
+        </div>
 
         <div class="about-copy reveal">
           <div class="section-label">// about</div>
